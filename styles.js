@@ -1,4 +1,4 @@
-const NAV_BAR_HEIGHT = 44;
+const NAV_BAR_HEIGHT = 64;
 const STATUS_BAR_HEIGHT = 20;
 
 module.exports = {
@@ -49,5 +49,6 @@ module.exports = {
     letterSpacing: 0.5,
     color: '#333',
     fontWeight: '500',
+    backgroundColor:'transparent'
   },
 };

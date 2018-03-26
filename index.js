@@ -3,6 +3,7 @@ import {
   StatusBar,
   Text,
   View,
+  Image,
   Platform,
 } from 'react-native';
 
@@ -140,14 +141,20 @@ export default class NavigationBar extends Component {
     let statusBar = null;
 
     if (Platform.OS === 'ios') {
-      statusBar = !this.props.statusBar.hidden ?
-        <View style={[styles.statusBar, customStatusBarTintColor]} /> : null;
+      // statusBar = !this.props.statusBar.hidden ?
+      //   <View style={[styles.statusBar, customStatusBarTintColor]} /> : null;
     }
 
     return (
       <View style={[styles.navBarContainer, containerStyle, customTintColor]}>
         {statusBar}
         <View style={[styles.navBar, style]}>
+
+          <Image source={require('./asset/navBarBg.png')}
+            resizeMode='cover'
+            style={{position:'absolute', top:0,bottom:0,
+            right:0,left:0,height:style.height || styles.navBar.height
+          }}/>
           {getTitleElement(title)}
           {getButtonElement(leftButton, { marginLeft: 8 })}
           {getButtonElement(rightButton, { marginRight: 8 })}
