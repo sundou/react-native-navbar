@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import ViewPropTypes from './lib';
 
 import NavbarButton from './NavbarButton';
-import styles from './styles';
+import styles from './styles'; 
 
 const ButtonShape = {
   title: PropTypes.string.isRequired,
