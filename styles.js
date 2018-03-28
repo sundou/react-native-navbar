@@ -34,6 +34,7 @@ module.exports = {
   navBarButtonText: {
     fontSize: 17,
     letterSpacing: 0.5,
+    backgroundColor:'transparent'
   },
   navBarTitleContainer: {
     position: 'absolute',
