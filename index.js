@@ -5,7 +5,13 @@ import {
   View,
   Image,
   Platform,
+  Animated,
+  Easing,
+  Dimensions
 } from 'react-native';
+// var Dimensions = require('Dimensions');
+// import Dimensions from 'Dimensions';
+var screenWidth = Dimensions.get('window').width;
 
 import NavbarButton from './NavbarButton';
 import styles from './styles';
@@ -101,12 +107,29 @@ export default class NavigationBar extends Component {
     containerStyle: {},
   };
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      btnRotateZ: new Animated.Value(0),
+    };
+  }
+
   componentDidMount() {
     this.customizeStatusBar();
+    this.beginRotate();
   }
 
   componentWillReceiveProps() {
     this.customizeStatusBar();
+  }
+
+  beginRotate() {
+      this.state.btnRotateZ.setValue(0);
+      Animated.timing(this.state.btnRotateZ, {
+        toValue:100,
+        duration: 35000,
+        easing: Easing.linear ,
+      }).start(() => this.beginRotate());
   }
 
   customizeStatusBar() {
@@ -146,14 +169,28 @@ export default class NavigationBar extends Component {
     }
 
     return (
-      <View style={[styles.navBarContainer, containerStyle, customTintColor]}>
-        <View style={[{height: styles.navBar.height}, style]}>
-
+      <View style={[styles.navBarContainer, containerStyle, customTintColor,{width:screenWidth}]}>
+        <View style={[{height: styles.navBar.height}, style,{
+          overflow: 'hidden',
+        }]}>
 
           <Image source={require('./asset/navBarBg.png')}
-            resizeMode='cover'
             style={{position:'absolute', top:0,bottom:0,
-            right:0,left:0,height:style.height || styles.navBar.height
+            width:screenWidth,
+            right:0,left:0,height:style.height || styles.navBar.height}}
+          />
+          <Animated.Image source={require('./asset/ball.png')}
+            resizeMode='contain'
+            style={{position:'absolute', top:0,left:0,
+            width:screenWidth,height:screenWidth,
+            transform: [
+            {rotateZ: this.state.btnRotateZ.interpolate({
+              inputRange:[0, 100],
+              outputRange:['0deg','360deg'],
+              })
+            },
+            {perspective: 1000},
+          ]
           }}/>
 
 
