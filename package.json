@@ -45,7 +45,7 @@
   ],
   "license": "MIT",
   "main": "index.js",
-  "name": "react-native-navbar",
+  "name": "@local/react-native-navbar",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/react-native-community/react-native-navbar.git"
