@@ -1,25 +1,35 @@
 {
-  "name": "react-native-navbar",
-  "version": "1.7.1",
-  "description": "Simple customizable navbar component for react-native",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
+  "_from": "git+https://github.com/sundou/react-native-navbar.git#d30afeda4299aa6a748c780a6c2e7aad0d372271",
+  "_id": "react-native-navbar@1.7.1",
+  "_inBundle": false,
+  "_location": "/react-native-navbar",
+  "_phantomChildren": {},
+  "_requested": {
     "type": "git",
-    "url": "git@github.com:react-native-community/react-native-navbar.git"
+    "raw": "git+https://github.com/sundou/react-native-navbar.git#d30afeda4299aa6a748c780a6c2e7aad0d372271",
+    "rawSpec": "git+https://github.com/sundou/react-native-navbar.git#d30afeda4299aa6a748c780a6c2e7aad0d372271",
+    "saveSpec": "git+https://github.com/sundou/react-native-navbar.git#d30afeda4299aa6a748c780a6c2e7aad0d372271",
+    "fetchSpec": "https://github.com/sundou/react-native-navbar.git",
+    "gitCommittish": "d30afeda4299aa6a748c780a6c2e7aad0d372271"
   },
-  "keywords": [
-    "react-native",
-    "navbar"
+  "_requiredBy": [
+    "#USER",
+    "/"
   ],
-  "author": "Alexey Kureev <kureev-mail@ya.ru> (https://github.com/Kureev)",
-  "license": "MIT",
+  "_resolved": "git+https://github.com/sundou/react-native-navbar.git#d30afeda4299aa6a748c780a6c2e7aad0d372271",
+  "_spec": "git+https://github.com/sundou/react-native-navbar.git#d30afeda4299aa6a748c780a6c2e7aad0d372271",
+  "_where": "/Users/lcwl/Desktop/iot_app",
+  "author": {
+    "name": "Alexey Kureev",
+    "email": "kureev-mail@ya.ru",
+    "url": "https://github.com/Kureev"
+  },
   "bugs": {
     "url": "https://github.com/react-native-community/react-native-navbar/issues"
   },
-  "homepage": "https://github.com/react-native-community/react-native-navbar",
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Simple customizable navbar component for react-native",
   "devDependencies": {
     "babel-eslint": "^7.1.1",
     "eslint": "^3.16.1",
@@ -27,5 +37,21 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0"
-  }
+  },
+  "homepage": "https://github.com/react-native-community/react-native-navbar",
+  "keywords": [
+    "react-native",
+    "navbar"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "react-native-navbar",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/react-native-community/react-native-navbar.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.7.1"
 }

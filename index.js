@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import {
   StatusBar,
   Text,
@@ -9,6 +9,7 @@ import {
   Easing,
   Dimensions
 } from 'react-native';
+import PropTypes from 'prop-types'
 // var Dimensions = require('Dimensions');
 // import Dimensions from 'Dimensions';
 var screenWidth = Dimensions.get('window').width;
@@ -16,25 +17,25 @@ var screenWidth = Dimensions.get('window').width;
 import NavbarButton from './NavbarButton';
 import styles from './styles';
 
-const ButtonShape = {
-  title: PropTypes.string.isRequired,
-  style: View.propTypes.style,
-  handler: PropTypes.func,
-  disabled: PropTypes.bool,
-};
+// const ButtonShape = {
+//   title: PropTypes.string.isRequired,
+//   style: View.propTypes.style,
+//   handler: PropTypes.func,
+//   disabled: PropTypes.bool,
+// };
 
-const TitleShape = {
-  title: PropTypes.string.isRequired,
-  tintColor: PropTypes.string,
-};
+// const TitleShape = {
+//   title: PropTypes.string.isRequired,
+//   tintColor: PropTypes.string,
+// };
 
-const StatusBarShape = {
-  style: PropTypes.oneOf(['light-content', 'default']),
-  hidden: PropTypes.bool,
-  tintColor: PropTypes.string,
-  hideAnimation: PropTypes.oneOf(['fade', 'slide', 'none']),
-  showAnimation: PropTypes.oneOf(['fade', 'slide', 'none']),
-};
+// const StatusBarShape = {
+//   style: PropTypes.oneOf(['light-content', 'default']),
+//   hidden: PropTypes.bool,
+//   tintColor: PropTypes.string,
+//   hideAnimation: PropTypes.oneOf(['fade', 'slide', 'none']),
+//   showAnimation: PropTypes.oneOf(['fade', 'slide', 'none']),
+// };
 
 function getButtonElement(data, style) {
   return (
@@ -70,27 +71,27 @@ function getTitleElement(data) {
 }
 
 export default class NavigationBar extends Component {
-  static propTypes = {
-    style: View.propTypes.style,
-    tintColor: PropTypes.string,
-    statusBar: PropTypes.shape(StatusBarShape),
-    leftButton: PropTypes.oneOfType([
-      PropTypes.shape(ButtonShape),
-      PropTypes.element,
-      React.PropTypes.oneOf([null]),
-    ]),
-    rightButton: PropTypes.oneOfType([
-      PropTypes.shape(ButtonShape),
-      PropTypes.element,
-      React.PropTypes.oneOf([null]),
-    ]),
-    title: PropTypes.oneOfType([
-      PropTypes.shape(TitleShape),
-      PropTypes.element,
-      React.PropTypes.oneOf([null]),
-    ]),
-    containerStyle: View.propTypes.style,
-  };
+  // static propTypes = {
+  //   style: View.propTypes.style,
+  //   tintColor: PropTypes.string,
+  //   statusBar: PropTypes.shape(StatusBarShape),
+  //   leftButton: PropTypes.oneOfType([
+  //     PropTypes.shape(ButtonShape),
+  //     PropTypes.element,
+  //     React.PropTypes.oneOf([null]),
+  //   ]),
+  //   rightButton: PropTypes.oneOfType([
+  //     PropTypes.shape(ButtonShape),
+  //     PropTypes.element,
+  //     React.PropTypes.oneOf([null]),
+  //   ]),
+  //   title: PropTypes.oneOfType([
+  //     PropTypes.shape(TitleShape),
+  //     PropTypes.element,
+  //     React.PropTypes.oneOf([null]),
+  //   ]),
+  //   containerStyle: View.propTypes.style,
+  // };
 
   static defaultProps = {
     style: {},
@@ -155,6 +156,7 @@ export default class NavigationBar extends Component {
       leftButton,
       rightButton,
       style,
+      ballAnimation = true,
     } = this.props;
     const customTintColor = tintColor ? { backgroundColor: tintColor } : null;
 
@@ -174,12 +176,13 @@ export default class NavigationBar extends Component {
           overflow: 'hidden',
         }]}>
 
-          <Image source={require('./asset/navBarBg.png')}
+          {ballAnimation && <Image source={require('./asset/navBarBg.png')}
             style={{position:'absolute', top:0,bottom:0,
             width:screenWidth,
             right:0,left:0,height:style.height || styles.navBar.height}}
-          />
-          <Animated.Image source={require('./asset/ball.png')}
+          />}
+
+          {ballAnimation && <Animated.Image source={require('./asset/ball.png')}
             resizeMode='contain'
             style={{position:'absolute', top:0,left:0,
             width:screenWidth,height:screenWidth,
@@ -191,7 +194,9 @@ export default class NavigationBar extends Component {
             },
             {perspective: 1000},
           ]
-          }}/>
+          }}/>}
+          
+          
 
 
           {statusBar}

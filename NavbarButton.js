@@ -1,10 +1,10 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import {
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
-
+import PropTypes from 'prop-types'
 import styles from './styles';
 
 export default function NavbarButton(props) {
@@ -33,18 +33,18 @@ export default function NavbarButton(props) {
   );
 }
 
-NavbarButton.propTypes = {
-  style: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.array,
-  ]),
-  tintColor: PropTypes.string,
-  title: PropTypes.string,
-  handler: PropTypes.func,
-  disabled: PropTypes.bool,
-  accessible: PropTypes.bool,
-  accessibilityLabel: PropTypes.string,
-};
+// NavbarButton.propTypes = {
+//   style: PropTypes.oneOfType([
+//     PropTypes.object,
+//     PropTypes.array,
+//   ]),
+//   tintColor: PropTypes.string,
+//   title: PropTypes.string,
+//   handler: PropTypes.func,
+//   disabled: PropTypes.bool,
+//   accessible: PropTypes.bool,
+//   accessibilityLabel: PropTypes.string,
+// };
 
 NavbarButton.defaultProps = {
   style: {},
